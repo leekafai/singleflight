@@ -1,0 +1,19 @@
+{
+  "name": "singleflight",
+  "version": "1.0.0",
+  "description": "provides a duplicate function call suppression mechanism.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leekafai/singleflight.git"
+  },
+  "author": "leekafai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leekafai/singleflight/issues"
+  },
+  "homepage": "https://github.com/leekafai/singleflight#readme"
+}
