@@ -6,7 +6,9 @@ provides a duplicate function call suppression mechanism.
 
 [singleflight](https://pkg.go.dev/golang.org/x/sync/singleflight)
 
-
+```shell
+npm i github:leekafai/singleflight
+```
 
 ```javascript
 const singleFlight = require('singleFlight')

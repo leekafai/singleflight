@@ -4,6 +4,7 @@
  */
 const singleFlight = (fn) => {
   const p = {}
+  let plen = {}
   /**
    * 并发调用
    * @param {string} key 共用键
@@ -11,21 +12,28 @@ const singleFlight = (fn) => {
    */
   return (key, ...args) => {
     if (!p[key]) p[key] = []
+    if (isNaN(plen[key])) plen[key] = 0
     return new Promise((resolve, reject) => {
       p[key].push({ resolve, reject })
+      plen[key] += 1
       if (p[key].length === 1) {
         fn(...args).then((result) => {
-          let x = p[key].pop()
-          while (x && x.resolve) {
+          p[key] = p[key].reverse()
+          while (p[key].length) {
+            const x = p[key].pop()
             x.resolve(result)
-            x = p[key].pop()
           }
+
         }).catch((e) => {
-          let x = p[key].pop()
-          while (x && x.reject) {
+
+          while (p[key].length) {
+            const x = p[key].pop()
             x.reject(e)
-            x = p[key].pop()
           }
+
+        }).finally(() => {
+          // delete p[key]
+
         })
       }
     })
