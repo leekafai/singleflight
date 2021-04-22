@@ -1,7 +1,18 @@
 Golang singleflight in Node
 
 provides a duplicate function call suppression mechanism.
-在多次调用中共用返回值，并发时使用。
+
+
+当在并发中需要异步获取相同的响应数据时，可以使用 `singleFlight` 减少实际发出的异步请求数量。
+
+例如在一个 HTTP 服务中的接口 `/getACombo` 中，需要返回一个缓存于 redis 的数据。
+
+当多个客户端并发请求 `/getACombo` 接口，并传递相同的参数时，期望中返回的数据是一致且可以共用的。
+
+此时，在不使用 `singleFlight` 的情况下，每一个请求都会发出一个 redis 指令；
+
+使用 `singleFlight` 后，N 个期望返回数据相同的请求，将共用一个 redis 指令执行的结果,可以大幅减少发出的 redis 指令，大大减少了 redis 的指令执行数量、网络传输量。
+
 ---
 
 [singleflight](https://pkg.go.dev/golang.org/x/sync/singleflight)
