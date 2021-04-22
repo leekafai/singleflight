@@ -1,4 +1,4 @@
-const singleFlight = require('./')
+const singleFlight = require('../mapBase')
 let remoteGetRealTimes = 0
 let concurrentTimes = 0
 // 模拟远端获取数据
@@ -53,4 +53,4 @@ console.timeEnd('for')
 setTimeout(() => {
   console.log('并发调用 getFruitCache 次数', concurrentTimes)
   console.log('实际调用 remote.get 次数', remoteGetRealTimes)
-}, 1e3)
+}, 3e3)

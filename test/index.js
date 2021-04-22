@@ -1,20 +1,4 @@
-Golang singleflight in Node
-
-provides a duplicate function call suppression mechanism.
-在多次调用中共用返回值，并发时使用。
----
-
-[singleflight](https://pkg.go.dev/golang.org/x/sync/singleflight)
-
-### 安装
-
-```shell
-npm i github:leekafai/singleflight
-```
-
-### 使用案例
-
-```javascript
+const singleFlight = require('../')
 let remoteGetRealTimes = 0 // 异步结果返回的次数
 let concurrentTimes = 0 // 实际触发异步请求响应的次数
 const wait = 2e3
@@ -56,4 +40,3 @@ setTimeout(() => {
   console.log('并发调用 getFruitCache 次数', concurrentTimes) // 1e3
   console.log('实际调用 remote.get 次数', remoteGetRealTimes) // 远小于 1e3
 }, wait + 200)
-```

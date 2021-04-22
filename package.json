@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/leekafai/singleflight/issues"
   },
-  "homepage": "https://github.com/leekafai/singleflight#readme"
+  "homepage": "https://github.com/leekafai/singleflight#readme",
+  "devDependencies": {
+    "eslint": "^7.24.0"
+  }
 }
