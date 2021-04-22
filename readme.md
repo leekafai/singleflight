@@ -1,4 +1,5 @@
 Golang singleflight in Node
+---
 
 provides a duplicate function call suppression mechanism.
 
@@ -13,7 +14,6 @@ provides a duplicate function call suppression mechanism.
 
 使用 `singleFlight` 后，N 个期望返回数据相同的请求，将共用一个 redis 指令执行的结果,可以大幅减少发出的 redis 指令，大大减少了 redis 的指令执行数量、网络传输量。
 
----
 
 [singleflight](https://pkg.go.dev/golang.org/x/sync/singleflight)
 
