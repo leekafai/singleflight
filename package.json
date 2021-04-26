@@ -1,6 +1,6 @@
 {
   "name": "@9f/singleflight",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "provides a duplicate function call suppression mechanism.",
   "main": "index.js",
   "scripts": {
