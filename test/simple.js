@@ -31,7 +31,7 @@ for (let i = 0; i < 1e4; i++) {
     if (Math.random() > 0.5) {
       // 传递一个 key string。相同 key 则代表期望相同结果，则并发调用中的响应数据可以共用。
       // 可以在 key 之后传递参数。但相同 key 应传递相同参数，因为响应结果需要共用。
-      _getFruitCache('fruit', 'fruit_1').then((x) => {
+      _getFruitCache('fruit', 'fruit_1').then(() => {
         // 一秒内多次调用时，返回相同的结果
         concurrentTimes++
         // console.log(x) //  ['apple', 'banana']
@@ -39,7 +39,7 @@ for (let i = 0; i < 1e4; i++) {
         concurrentTimes++
       })
     } else {
-      _getFruitCache('fruit_2', 'fruit_2').then((x) => {
+      _getFruitCache('fruit_2', 'fruit_2').then(() => {
         concurrentTimes++
         // console.log(x) // ['orange', 'blueberry']
       }).catch(() => {
