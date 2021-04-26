@@ -1,10 +1,10 @@
 {
-  "name": "singleflight",
+  "name": "@9f/singleflight",
   "version": "1.0.0",
   "description": "provides a duplicate function call suppression mechanism.",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js"
+    "test": "node test/index.js"
   },
   "repository": {
     "type": "git",

@@ -20,13 +20,13 @@ provides a duplicate function call suppression mechanism.
 ### 安装
 
 ```shell
-npm i github:leekafai/singleflight
+npm i @9f/singleflight -S
 ```
 
 ### 使用案例
 
 ```javascript
-const singleFlight=require('singleflight')
+const singleFlight = require('@9f/singleflight')
 let remoteGetRealTimes = 0 // 异步结果返回的次数
 let concurrentTimes = 0 // 实际触发异步请求响应的次数
 const wait = 2e3
